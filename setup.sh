@@ -34,7 +34,7 @@ except:
     traceback.print_exc(file=logfile)
 EOF
 chmod 755 ~/fcgi-bin/${project}
-
+mkdir  -p ~/html/${html_subdir}
 # apache rewrite rules
 cat <<EOF >~/html/${html_subdir}/.htaccess
 RewriteEngine on
