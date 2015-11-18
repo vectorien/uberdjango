@@ -27,9 +27,9 @@ $ cd uberdjango
 * Run the setup script:
 
 ```
-./setup.sh DJANGOPROJECT
+./setup.sh DJANGOPROJECT HTML_SUBDIR
 ```
 
-`DJANGOPROJECT` will be your Django project name (only numbers, letters and underscores). Surf to `http://USERNAME.HOST.uberspace.de/admin`, login and change your admin password.
+`DJANGOPROJECT` will be your Django project name (only numbers, letters and underscores). Surf to `http://USERNAME.HOST.uberspace.de/$HTML_SUBDIR/admin`, login and change your admin password.
 
 Happy coding :)
