@@ -52,7 +52,7 @@ echo "alias manage='python ~/${project}/manage.py'" >> .bashrc
 
 # install django
 pip install django
-pip install south
+
 pip install flup
 
 # install ipython for proper "$ manage shell"
