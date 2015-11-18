@@ -2,11 +2,12 @@
 
 if [ $# -ne 1 ]
 then
-  echo "Usage: `basename $0` DJANGO_PROJECT_NAME"
+  echo "Usage: `basename $0` DJANGO_PROJECT_NAME HTML_SUBDIR"
   exit -1
 fi
 
 project=$1
+html_subdir=$2
 
 # fcgi wrapper
 cat <<EOF >~/fcgi-bin/${project}
@@ -35,7 +36,7 @@ EOF
 chmod 755 ~/fcgi-bin/${project}
 
 # apache rewrite rules
-cat <<EOF >~/html/.htaccess
+cat <<EOF >~/html/${html_subdir}/.htaccess
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ /fcgi-bin/${project}/\$1 [QSA,L]
@@ -59,8 +60,8 @@ pip install readline
 pip install ipython
 
 # copy static admin files
-mkdir -p ~/html/static
-cp -a ~/venv/lib/python2.7/site-packages/django/contrib/admin/static/admin ~/html/static/
+mkdir -p ~/html/${html_subdir}/static
+cp -a ~/venv/lib/python2.7/site-packages/django/contrib/admin/static/admin ~/html/${html_subdir}/static/
 
 # init django project
 popd
