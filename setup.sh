@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $# -ne 1 ]
+if [ $# -ne 2 ]
 then
   echo "Usage: `basename $0` DJANGO_PROJECT_NAME HTML_SUBDIR"
   exit -1
